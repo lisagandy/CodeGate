@@ -1,4 +1,6 @@
 from TwitterSearch import *
+import re
+
 try:
     tso = TwitterSearchOrder() # create a TwitterSearchOrder object
     tso.set_keywords(['gate']) # let's define all words we would like to have a look for
@@ -15,9 +17,17 @@ try:
      )
 
      # this is where the fun actually starts :)
+     # Will find all tweets where the text includes -gate or a word with gate at the end
+     # won't catch gate by itself because that leads to a ton of false positives
     for tweet in ts.search_tweets_iterable(tso):
         try:
-            print( '@%s tweeted: %s' % ( tweet['user']['screen_name'], tweet['text'] ) )
+            #print( '@%s tweeted: %s' % ( tweet['user']['screen_name'], tweet['text'] ) )
+            matchObj = re.match('(\w+|\w+-)gate', tweet['text'], re.I)
+            if matchObj:
+                #print("Found a match! ", matchObj.group())
+                print( '@%s tweeted: %s' % ( tweet['user']['screen_name'], tweet['text'] ) )
+           # else:
+               # print("No match")
         except UnicodeEncodeError:
             pass
 
