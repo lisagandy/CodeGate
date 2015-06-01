@@ -60,7 +60,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         #'HOST':'',
-        'NAME': '/Users/lisa/Desktop/codegate.sqlite3',
+        'NAME': 'codegate.sqlite3',
         #'USER':'root',
         #'PASSWORD':'stuff0645'
     }
