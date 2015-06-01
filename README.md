@@ -15,9 +15,6 @@
 3. move to django project root directory
   > cd mysite/
 
-2. clone [static](https://github.com/jordangumm/static)
-  > git clone https://github.com/jordangumm/static
-
 3. migrate apps
   > python manage.py makemigrations news beta
 
