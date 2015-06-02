@@ -31,5 +31,5 @@
 
 
 ##### Not Looking Pretty?
-If the result doesn't have any noticable styling, the static files directory is probably being referenced.
+If the result doesn't have any noticable styling, the static files directory is probably not being referenced.
 Adding your local path to the static directory under the settings.py STATICFILES_DIRS attribute should fix this.
