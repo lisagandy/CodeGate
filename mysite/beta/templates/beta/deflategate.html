@@ -36,7 +36,11 @@
                 {% if latest_news_list %}
                 <ul class="list-group">
                     {% for article in latest_news_list %}
-                    <li class="list-group-item">{{ article.heading }}</li>
+                    <li class="list-group-item">
+                        <a href="{{ article.url }}">{{ article.heading }}</a>
+                        <span class="label label-warning">{{ article.pub_date }}</span>
+                        <span class="label label-default">{{ article.source }}</span>
+                    </li>
                     {% endfor %}
                 </ul>
                 {% else %}

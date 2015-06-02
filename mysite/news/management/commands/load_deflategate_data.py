@@ -28,6 +28,11 @@ class Command(BaseCommand):
             print str(float(i * 10)/float(num_hits)) + "%"
             for j, story in enumerate(decoded['response']['docs']):
                 d = dateutil.parser.parse(story['pub_date'])
-                article = NewsArticle.objects.create_news_article(heading=story['headline']['main'], pub_date=d)
+                
+                article = NewsArticle.objects.create_news_article(heading=story['headline']['main'],
+                                                                url=story['web_url'],
+                                                                pub_date=d,
+                                                                gate_term='deflategate',
+                                                                source='New York Times')
                 if article:
                     article.save()
